@@ -60,4 +60,57 @@ print __name__
 __имя__ - это спец. переменные. "магические переменные"
 '''
 
+'''
+Python очень похож на Java. Как и Java, Python - это язык с виртуальной
+машиной.
+В Java - это JVM. В Python - это PVM.
 
+PVM - это сильно упрощенный вариант JVM.
+Основное упрощение - отсутствие статической типизации (как в JavaScript).
+
+Пример:
+Функция main на Java:
+
+public static void main(String[] args) throws Exception {
+    ...
+}
+
+Функция на Python:
+
+def main(args):
+    ...
+
+Функция на JavaScript:
+
+function main(args) {
+    ...
+}
+
+Отсутствие статической типизации, позволили слить фазы компиляции и выполнения
+в одну - интерпретация.
+
+В результате интерпретации получается байткод который сразу выполняется.
+Резульатом выполнения байткода является новый объект и/или манипуляуии над
+уже существующим объектом.
+'''
+
+print None # пустое значение
+print True, False # Булевский тип
+# Встроенные типы данных
+from decimal import Decimal
+print 1, 3.1451, 3+4j, Decimal(1), int("1") # Числа
+print 'spam', "guido", u"ололо", str(1) # Строки
+print [1, [2, 4, "hello"], 4], list("abc") # Списки
+print {'food': 'spam', 'taste': 'yum'}, dict(a=1) # Словари
+print (1,2,3,'hello') # Картежи (tuple)
+print open('datatypes.py') # Файлы
+print set('aabbcc') # Множества
+
+'''
+Встроенные функции, живут в модуле __builtin__
+'''
+
+print len('abc')
+print hex(10)
+print oct(10)
+print bin(10)
