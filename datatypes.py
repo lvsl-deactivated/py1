@@ -98,7 +98,8 @@ print None # пустое значение
 print True, False # Булевский тип
 # Встроенные типы данных
 from decimal import Decimal
-print 1, 3.1451, 3+4j, Decimal(1), int("1") # Числа
+from fractions import Fraction
+print 1, 3.1451, 3+4j, Decimal(1), Fraction(3,4), int("1") # Числа
 print 'spam', "guido", u"ололо", str(1) # Строки
 print [1, [2, 4, "hello"], 4], list("abc") # Списки
 print {'food': 'spam', 'taste': 'yum'}, dict(a=1) # Словари
