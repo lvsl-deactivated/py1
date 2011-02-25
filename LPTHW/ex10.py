@@ -19,3 +19,9 @@ print tabby_cat
 print persian_cat
 print backslash_cat
 print fat_cat
+
+# Упражения:
+#
+# 1. Выясните, какие ещё  escape-последовательности существуют
+#
+
