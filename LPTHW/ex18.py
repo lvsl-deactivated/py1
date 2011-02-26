@@ -20,6 +20,8 @@ def print_one(arg):
 def print_none():
     print "Я функция без аргументов :("
 
+# Чтобы "вызвать" функцию, нужно воспользоваться
+# специальным выражением: <имя функции>()
 print_two("Vasilev", "LJ")
 print_two2("Vasilev", "LJ")
 print_one("XXX")
