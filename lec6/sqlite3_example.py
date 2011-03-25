@@ -3,7 +3,7 @@
 import sqlite3
 
 def main():
-    con = sqlite3.connect(':memory:')
+    con = sqlite3.connect('db.sqlite3')
 
     c = con.cursor()
 

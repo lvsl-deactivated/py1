@@ -33,6 +33,7 @@ def main():
     csv_reader_dict = csv.DictReader(sample_data)
 
     for d in csv_reader_dict:
+        print d
         for k,v in d.items():
             print "%s: %s" % (k,v)
 
@@ -49,7 +50,7 @@ def main():
     csv_dict_file = open('csv_dict_example.csv', 'w')
 
     csv_writer_dict = csv.DictWriter(csv_dict_file,
-                                     sorted(sample_dict[0].keys()))
+        sorted(sample_dict[0].keys()))
 
     csv_writer_dict.writeheader() # python 2.7+
     csv_writer_dict.writerows(sample_dict)

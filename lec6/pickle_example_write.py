@@ -5,7 +5,9 @@
 import cPickle as  pickle
 
 class State(object):
-    def __init__(self, first_name, third_name, second_name=''):
+    def __init__(self, first_name,
+                       third_name,
+                       second_name=''):
         self.first_name = first_name.decode('utf-8')
         self.second_name = second_name.decode('utf-8')
         self.third_name = third_name.decode('utf-8')
