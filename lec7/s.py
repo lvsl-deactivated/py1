@@ -17,6 +17,7 @@ class H(BaseHTTPRequestHandler):
         self.end_headers()
 
         self.wfile.write(example_html())
+        self.wfile.write(self.path)
         self.wfile.flush()
         self.connection.close()
 
