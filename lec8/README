@@ -1,0 +1,8 @@
+Чтобы работать с примерами из этой лекции нужно
+скачать и распоковать(установить) архив[1] с Google App Engine SDK
+в ту же директрию, где находиться это файл.
+
+Также необходимо завести себе аккаунт[2] на Goggle.
+
+[1] http://code.google.com/intl/ru/appengine/downloads.html
+[2] https://www.google.com/accounts/newaccount
