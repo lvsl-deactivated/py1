@@ -1,0 +1,8 @@
+application: "google-accounts-example"
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /.*
+  script: gaccount_example.py
