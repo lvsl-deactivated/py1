@@ -1,0 +1,29 @@
+.login_info .lurl {
+  float: right;
+  margin-right: 0.5em;
+}
+
+.footer {
+  text-align: center;
+}
+
+.footer span {
+  color: #888;
+  font-size: 10px;
+}
+
+
+.shock {
+  text-align: center;
+}
+
+.shock b {
+  font-family: "League Gothic",Haettenschweiler,sans-serif;
+  text-transform: uppercase;
+  color: #008;
+  font-size: 18.2em;
+  font-weight: 100;
+  line-height: 0.9em;
+  margin-bottom: 0;
+  text-shadow: black 4px 4px 8px, red 0 0 2em;
+}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Ваша текущая таймзона: {{tz_offset}}</h1>
+
+<form action="/prefs" method="POST">
+  <label for="tz_offset">
+    Таймзона
+  </label>
+  <input name="tz_offset" type="text" size="4" value="{{tz_offset}}" />
+
+  <input type="submit" value="Сохранить" />
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Главная страница.</title>
+    <link type="text/css" rel="stylesheet" href="/media/css//main.css" /> 
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="login_info">
+        {% if is_logged_in %}<span> Привет, <b>
+            <a title="Настройки" href="/prefs">{{user.nickname}}</a></b>!</span>{% endif %}
+        <a class="lurl" href="{{lurl}}">{% if is_logged_in %}Выйти из системы{% else %}Войти в систему{% endif %}</a>
+      </div>
+    </div>
+
+    <div class="content"> 
+    {% block content %}
+    {% endblock %}
+    </div>
+
+    <div class="footer">
+      <span>-- Copyright by None (c) 2011. --</span>
+    </div>
+  </body>
+</html>
+
