@@ -3,8 +3,10 @@
 # Пример использование сервиса Google Datastore
 
 import os.path
+import logging
 
 from google.appengine.api import users
+from google.appengine.api import memcache
 
 from google.appengine.ext import webapp
 from google.appengine.ext import db
@@ -24,6 +26,17 @@ class UserPrefs(db.Model):
     tz_offset = db.IntegerProperty(default=0)
     user = db.UserProperty(auto_current_user_add=True)
 
+    def cache_set(self):
+        k = self.key().name()
+        ns = self.key().kind()
+        logging.info("Saving %s in namespace  %s" % (k, ns))
+
+        memcache.set(k, self, namespace=ns)
+
+    def put(self):
+        self.cache_set()
+        db.Model.put(self)
+
 
 # Функции для работы с моделями
 def get_userprefs(user_id=None):
@@ -38,11 +51,19 @@ def get_userprefs(user_id=None):
             return None
         user_id = user.user_id()
 
-    # ищем объект пользователя
-    key = db.Key.from_path('UserPrefs', user_id)
-    userprefs = db.get(key)
+    # сначала ищем в кеше
+    userprefs = memcache.get(user_id, namespace='UserPrefs')
     if not userprefs:
-        userprefs = UserPrefs(key_name=user_id)
+        logging.info("Cache miss for %s" % user_id)
+        # ищем объект пользователя
+        key = db.Key.from_path('UserPrefs', user_id)
+        userprefs = db.get(key)
+        if not userprefs:
+            userprefs = UserPrefs(key_name=user_id)
+        else:
+            userprefs.cache_set() # сохнаняем в кеше
+    else:
+        logging.info("Cache hit for %s" % user_id)
 
     return userprefs
 
