@@ -1,11 +1,15 @@
-application: "google-datastore-example"
-version: 1
+application: "sdfge10"
+version: 2
 runtime: python
 api_version: 1
 
 handlers:
 - url: /media
   static_dir: media
-  
-- url: /.*
+
+- url: /prefs
+  script: datastore_example.py
+  login: required 
+
+- url: /
   script: datastore_example.py

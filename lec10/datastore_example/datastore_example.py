@@ -112,9 +112,6 @@ class SavePrefs(webapp.RequestHandler):
     Страница сохранения настроек пользователя
     '''
     def get(self):
-        user = users.get_current_user()
-        if not user:
-            return self.redirect(users.create_login_url(self.request.path))
         userprefs = get_userprefs()
         ctx = build_ctx(self.request)
         ctx['tz_offset'] = userprefs.tz_offset
@@ -122,9 +119,6 @@ class SavePrefs(webapp.RequestHandler):
         self.response.out.write(tmpl)
 
     def post(self):
-        user = users.get_current_user()
-        if not user:
-            return self.redirect(users.create_login_url(self.request.path))
         userprefs = get_userprefs()
 
         try:
